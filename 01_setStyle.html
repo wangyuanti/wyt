@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				position: relative;
+			}
+			ul{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#show_btn{
+				width: 90px;
+				height: 30px;
+				background: red;
+				color: #ffffff;
+				border: none;
+				text-align: center;
+				margin-top: 20px;
+			}
+			#testDiv{
+				width: 100px;
+				height: 100px;
+				background: #FFFFFF;
+				border: 2px solid #000000;
+				margin-left: 20px;
+			}
+			#popUp{
+				width: 100%;
+				height: 650px;
+				background: rgba(0,0,0,0.3);
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			#menu{
+				width: 300px;
+				height: 200px;
+				border: 10px solid #222222;
+				background: #FFFFFF;
+				position: relative;
+				top: calc(50% - 110px);
+				left: calc(50% - 160px);				
+			}
+			#menu ul li{
+				padding:15px 0px 15px 5px;
+				
+			}
+			#menu ul li:nth-child(4){
+				text-align: center;
+			}
+			#menu ul li:nth-child(4) input{
+				background: #002952;
+				color: #FFFFFF;
+			}		
+			#menu ul li input{
+				width: 50px;
+				height: 20px;
+				line-height: 18px;
+			}
+			#menu ul li #red{
+				background: #9cce00;
+			}
+			#menu ul li #yellow{
+				background: #efbd00;
+			}
+			#menu ul li #blue{
+				background: #5a94ef;
+			}
+		</style>		
+	</head>
+	<body>
+		<span>请为下面的DIV设计样式：</span>
+		<input type="button" name="show_btn" id="show_btn" value="点击设置" />
+		<div id="testDiv"></div>
+		<div id="popUp">
+			<div id="menu">
+				<ul>
+					<li>
+						<span>请选择背景颜色：</span>
+						<input type="button" name="" id="red" value="红" />
+						<input type="button" name="" id="yellow" value="黄" />
+						<input type="button" name="" id="blue" value="蓝" />
+					</li>
+					<li>
+						<span>请选择宽度：</span>
+						<input type="button" name="" id="w2" value="200" />
+						<input type="button" name="" id="w3" value="300" />
+						<input type="button" name="" id="w4" value="400" />
+					</li>
+					<li>
+						<span>请选择高度：</span>
+						<input type="button" name="" id="h2" value="200" />
+						<input type="button" name="" id="h3" value="300" />
+						<input type="button" name="" id="h4" value="400" />
+					</li>
+					<li>
+						<input type="button" name="" id="recovery" value="恢复" />
+						<input type="button" name="" id="confirm" value="确定" />
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+			window.onload = function (){
+				var oBtnShow = document.getElementById('show_btn');
+				var oBtnConfirm = document.getElementById('confirm');
+				var oPopUp = document.getElementById('popUp');
+				var oTestDiv = document.getElementById('testDiv');
+				var oRed = document.getElementById('red');
+				var oYellow = document.getElementById('yellow');
+				var oBlue = document.getElementById('blue');
+				var w2 = document.getElementById('w2');
+				var w3 = document.getElementById('w3');
+				var w4 = document.getElementById('w4');
+				var h2 = document.getElementById('h2');
+				var h3 = document.getElementById('h3');
+				var h4 = document.getElementById('h4');
+				var oRecovery = document.getElementById('recovery');
+				oBtnShow.onclick = function (){
+					oPopUp.style.display = 'block';
+				};
+				oBtnConfirm.onclick = function (){
+					oPopUp.style.display = 'none';
+				};
+				oRed.onclick = function (){
+					oTestDiv.style.background = 'red';
+				}
+				oRed.onmouseover = function (){
+					oRed.style.background = 'red';
+				}
+				oRed.onmouseout = function (){
+					oRed.style.background = '#9cce00';
+				}
+				oYellow.onclick = function (){
+					oTestDiv.style.background = 'yellow';
+				}
+				oYellow.onmouseover = function (){
+					oYellow.style.background = 'yellow';
+				}
+				oYellow.onmouseout = function (){
+					oYellow.style.background = '#efbd00';
+				}
+				oBlue.onclick = function (){
+					oTestDiv.style.background = 'blue';
+				}
+				oBlue.onmouseover = function (){
+					oBlue.style.background = '#0000ff';
+				}
+				oBlue.onmouseout = function (){
+					oBlue.style.background = '#5a94ef';
+				}
+				w2.onclick = function (){
+					oTestDiv.style.width = '200px'
+				}
+				w2.onmouseover = function (){
+					w2.style.background = '#ef9400';
+				}
+				w2.onmouseout = function (){
+					w2.style.background = '#ffffff';
+				}
+				w3.onclick = function (){
+					oTestDiv.style.width = '300px'
+				}
+				w3.onmouseover = function (){
+					w3.style.background = '#ef9400';
+				}
+				w3.onmouseout = function (){
+					w3.style.background = '#ffffff';
+				}
+				w4.onclick = function (){
+					oTestDiv.style.width = '400px'
+				}
+				w4.onmouseover = function (){
+					w4.style.background = '#ef9400';
+				}
+				w4.onmouseout = function (){
+					w4.style.background = '#ffffff';
+				}
+				h2.onclick = function (){
+					oTestDiv.style.height= '200px'
+				}
+				h2.onmouseover = function (){
+					h2.style.background = '#ef9400';
+				}
+				h2.onmouseout = function (){
+					h2.style.background = '#ffffff';
+				}
+				h3.onclick = function (){
+					oTestDiv.style.height= '300px'
+				}
+				h3.onmouseover = function (){
+					h3.style.background = '#ef9400';
+				}
+				h3.onmouseout = function (){
+					h3.style.background = '#ffffff';
+				}
+				h4.onclick = function (){
+					oTestDiv.style.height= '400px'
+				}
+				h4.onmouseover = function (){
+					h4.style.background = '#ef9400';
+				}
+				h4.onmouseout = function (){
+					h4.style.background = '#ffffff';
+				}
+				oRecovery.onclick = function (){
+					oTestDiv.style.height = '100px';
+					oTestDiv.style.width = '100px';
+					oTestDiv.style.background = '#FFFFFF';
+				}
+			};
+		</script>
+</html>
