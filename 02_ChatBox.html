@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/zuoye.css"/>
+	<body>
+		<div class="bg">
+			<div class="phone">
+				<div class="decoration1"></div>
+				<div class="phoneScreen">					
+					<ul class="chat clearFix">
+						
+					</ul>
+					<div class="input">
+						<i class="t t1"></i>
+						<input type="text" name="" id="" value="" placeholder="请输入"/>
+						<input type="button" name="" id="" value="发送" />
+					</div>
+				</div>
+				<div class="decoration2"></div>
+			</div>
+			<div class="up"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var text1 = document.querySelector('.input input:nth-of-type(1)');
+		var btn = document.querySelector('.input input:nth-of-type(2)');
+		var ulN = document.querySelector('.chat');	
+		var tu = document.querySelector('.t');
+		text1.focus();
+		btn.onclick = function (){
+			if(text1.value == ''){
+				alert('亲，写点什么吧！')
+			}else{
+				if(tu.classList.length == 2){
+					var val = `<li style="float: left">
+					<i class="li1"></i>
+					<i class="li2"></i>
+					<span class="spanL">${text1.value}</span>
+					</li>`;
+				}else{
+					var val = 
+					`<li style="text-align: right; float: right">
+					<i class="ri1"></i>
+					<i  class="ri2"></i>
+					<span class="spanR">${text1.value}</span>
+					</li>`;
+			};		ulN.innerHTML = val + ulN.innerHTML;
+			console.log(ulN.innerHTML);
+			text1.focus();
+	  		text1.value = '';
+			};
+		};
+		
+		tu.onclick = function (){
+     		 tu.classList.toggle('t2')
+    };
+	</script>
+</html>
