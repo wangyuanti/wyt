@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/zuoye.css"/>
+	</head>
+	<body>
+		<div class="bg">
+			<div class="ipad">
+				<i class="lipad"></i>
+				<div class="cipad">
+					<div class="popupW">
+						<span class="span1 span"></span>
+						<span class="span2 span"></span>
+						<div class="popupWC">
+							<i class="btnOn"></i>
+							<p class="pOn">JavaScript提醒</p>
+							<p class="pDown"></p>
+							<button class="btnDown">确定</button>
+						</div>
+					</div>
+					<span class="lbtn btn btn2">循环切换</span>
+					<span class="rbtn btn">顺序切换</span>
+					<p class="bprompt">图片可以从最后一张跳转到第一张循环切换</p>
+					<div class="imgs">
+						<img src="img/img01.jpg" id="img"/>
+						<i class="li"></i>
+						<i class="ri"></i>
+						<span class="ti">1/4</span>
+						<p class="bi">文字描述1</p>
+					</div>
+				</div>
+				<i class="ripad"></i>
+			</div>
+		</div>
+	</body>
+	
+		<script type="text/javascript">
+			var lbtn = document.querySelector('.lbtn');
+			var rbtn = document.querySelector('.rbtn');
+			var libtn = document.querySelector('.li');
+			var ribtn = document.querySelector('.ri');
+			var images = document.getElementById('img');
+			var bi = document.querySelector(".bi");
+			var ti = document.querySelector(".ti");
+			var bprompt = document.querySelector(".bprompt");
+			var popupW = document.querySelector(".popupW");
+			var pDown = document.querySelector(".pDown");
+			var btnDown = document.querySelector(".btnDown");
+			var btnOn = document.querySelector(".btnOn");
+			var a = 1;
+			var b = true;
+			var c = 0;
+			var d = true;
+			function qiehuan(){
+				if (b == true) {
+					console.log(bprompt.innerHTML);
+					bprompt.innerHTML = '图片可以从最后一张跳转到第一张循环切换';
+					ribtn.onclick = function (){			
+						a++;
+						if (a == 5) {
+							a = 1;
+						}
+						images.src = 'img/img0'+ a +'.jpg';
+						bi.innerHTML = '文字描述' + a;
+						ti.innerHTML = a + '/4'				
+					}
+					libtn.onclick = function (){			
+						a--;
+						if (a == 0) {
+							a = 4;
+						}
+						images.src = 'img/img0'+ a +'.jpg';
+						bi.innerHTML = '文字描述' + a;
+						ti.innerHTML = a + '/4'
+					}
+				}
+			};
+			lbtn.onclick = function (){
+				b = true;
+				lbtn.classList.add('btn2');
+				rbtn.classList.remove('btn2');	
+				qiehuan();
+			};
+			rbtn.onclick = function (){
+				b = false;
+				rbtn.classList.add('btn2');
+				lbtn.classList.remove('btn2');	
+				if(b == false){
+					bprompt.innerHTML = '图片只能到最后一张或只能到第一张切换';
+					ribtn.onclick = function (){			
+						a++;
+						if (a == 5) {
+							c = 1;
+							a = 4;
+						}
+						images.src = 'img/img0'+ a +'.jpg';
+						bi.innerHTML = '文字描述' + a;
+						ti.innerHTML = a + '/4'	
+						if(c == 1){
+							if(d == true){
+								popupW.style.display = 'block';
+								pDown.innerHTML = '已经到最后一张了~';
+								d = false;
+							}							
+						}
+					}
+					libtn.onclick = function (){			
+						a--;
+						if (a <= 1) {
+							c = 2;
+							a = 1;	
+						}
+						images.src = 'img/img0'+ a +'.jpg';
+						bi.innerHTML = '文字描述' + a;
+						ti.innerHTML = a + '/4'
+						if (c == 2) {
+							if(d == true){
+								popupW.style.display = 'block';
+								pDown.innerHTML = '已经到第一张了~'
+								d = false;
+							}
+						}
+					}
+				}
+			};
+			
+			qiehuan();
+			btnDown.onclick = function (){
+				if (d == false) {
+					popupW.style.display = 'none';
+					d = true;
+				}		
+			}
+			btnOn.onclick = function (){
+				if (d == false) {
+					popupW.style.display = 'none';
+					d = true;
+				}		
+			}	
+		</script>
+</html>
+
+
+
+				
