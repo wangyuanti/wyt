@@ -1,0 +1,31 @@
+body{
+	margin: 0;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.box{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.littleBox{
+	width: 10%;
+	height: 10%;
+	background-image: url(../imgs/timg.jpg);
+	display: inline-block;
+	position: absolute;
+	opacity: 0.6;	
+	box-sizing:border-box;
+	border: 1px solid #FFFFFF;
+}
+.span2{
+	opacity: 1;
+}
+.littleBox:hover{
+	transform:scale(1.1);
+	transition:0.5s;
+	z-index: 2;
+}

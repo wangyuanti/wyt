@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/zuiye2-1.css"/>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector('.box');		
+		for(var i=0;i<10;i++){
+			for(var j=0;j<10;j++){
+				box.innerHTML += `<div class="littleBox" style="background-position: -${j*100}%  -${i*100}%;left: ${j*10}%;top: ${i*10}%;"></div>`
+			}			
+		}
+		var littleBox = document.querySelectorAll('.littleBox');
+		var len = littleBox.length;
+		for(var i=0;i<100;i++){
+			littleBox[i].onmouseover = function (){
+				this.classList.add('span2');				
+			}
+		}
+		console.log(width);
+		console.log(height);
+	</script>
+</html>
