@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/hdp.css"/>
+	<body>
+		<div class="slide-container">
+		    <div class="slides">
+		    	<img class="img imgAppear" />
+		    	<img class="img" />
+		    	<img class="img" />
+		    	<img class="img" />
+		    	<img class="img" />
+		    	<a class="littleImg littleImg2" href="#" ></a>
+		    	<a class="littleImg" href="#"></a>
+		    	<a class="littleImg" href="#"></a>
+		    	<a class="littleImg" href="#"></a>
+		    	<a class="littleImg" href="#"></a>
+		    	<span class="Limg"></span>
+		    	<span class="Limg"></span>
+		    	<span class="Limg"></span>
+		    	<span class="Limg"></span>
+		    	<span class="Limg"></span>
+		    </div>	    
+		    <div class="prev"><</div>
+		    <div class="next">></div>
+		  </div>
+	</body>
+	<script>
+	// 数据
+    var imgData = [
+      'img/1.jpg',
+      'img/2.jpg',
+      'img/3.jpg',
+      'img/4.jpg',
+      'img/5.jpg'
+    ]; 
+    var img = document.querySelectorAll('.img');
+    var littleImg = document.querySelectorAll('.littleImg');
+    var Limg = document.querySelectorAll('.Limg');
+    var lenImg = img.length;
+    var lenLittleimg = littleImg.length;
+    var prev = document.querySelector('.prev');
+	var next = document.querySelector('.next');	
+	var appearNum1 = 0;	
+	for(var i=0;i<lenLittleimg;i++){
+		littleImg[i].style.bottom = '20px';
+		Limg[i].style.bottom = '50px';
+		Limg[i].style.left = `${238+i*40}px`;
+		littleImg[i].style.left = `${264+i*40}px`;
+	}
+    for(var i=0;i<lenImg;i++){
+    	img[i].src = imgData[i];
+    }
+    next.onclick = function (){
+    	for(var i=0;i<lenImg;i++){
+    		img[i].classList.remove('imgAppear');
+    		littleImg[i].classList.remove('littleImg2');
+    	} 
+    	appearNum1++;
+    	if(appearNum1==lenImg){
+    		appearNum1 = 0;   		
+    	}   	
+    	img[appearNum1].classList.add('imgAppear');  
+    	littleImg[appearNum1].classList.add('littleImg2');    	  	
+    }
+    prev.onclick = function (){
+    	for(var i=0;i<lenImg;i++){
+    		img[i].classList.remove('imgAppear');
+    		littleImg[i].classList.remove('littleImg2');
+    	} 
+    	appearNum1--;
+    	if(appearNum1<0){
+    		appearNum1 = 4;
+    	}
+    	img[appearNum1].classList.add('imgAppear');
+    	littleImg[appearNum1].classList.add('littleImg2');
+    }
+    var num = appearNum1;
+    for(var i=0;i<lenLittleimg;i++){
+    	littleImg[i].x = i;
+    	littleImg[i].onclick = function (){
+    		num = this.x;
+    		appearNum1 = this.x;
+    		for(var i=0;i<lenLittleimg;i++){
+    			littleImg[i].classList.remove('littleImg2');
+    			img[i].classList.remove('imgAppear');
+    		}   		
+    		this.classList.add('littleImg2');
+    		img[num].classList.add('imgAppear');
+    	}
+    	littleImg[i].onmouseover = function(){   
+    		num = this.x;
+    		Limg[num].classList.add('Limg2');
+    		console.log(imgData[num]);
+    		Limg[num].style.backgroundImage = 'url('+imgData[num]+')';
+    	}
+    	littleImg[i].onmouseout = function(){
+    		for(var i=0;i<lenLittleimg;i++){
+    			Limg[i].classList.remove('Limg2');
+    		}  		
+    	}
+    }
+  </script>
+</html>

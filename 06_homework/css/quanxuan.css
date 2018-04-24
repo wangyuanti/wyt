@@ -1,0 +1,126 @@
+a{
+	text-decoration: none;
+	color: inherit;
+}
+.bg{
+	width: 758px;
+	height: 478px;
+	background-image: url(../img/bg.png);
+	position: relative;
+}
+.player{
+	width: 482px;
+	height: 301px;
+	border-radius: 5px;
+	position: absolute;
+	left: 138px;
+	top: 95px;
+	background-color: #ffffff;
+	background-image: url(../img/logo.png);
+	background-repeat: no-repeat;
+	background-position: 128px 61px;
+}
+.nav{
+	width: 482px;
+	height: 216px;
+	background-color: rgba(255,255,255,0.8);
+	padding: 19px 0;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.options{
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+	font-size: 14px;
+	position: relative;	
+}
+.options:nth-child(2),.options:nth-child(4),.options:nth-child(6){
+	background-color: rgba(222,74,99,0.4);
+}
+.options:hover{
+	background-color: rgba(222,74,99,0.8);
+	color: #FFFFFF;
+}
+.nav .options2{
+	background-color: rgba(222,74,99,0.8);
+	color: #FFFFFF;
+}
+.options input{
+	position: absolute;
+	top: 9px;
+	left: 30px;
+}
+.leftSpan{
+	position: absolute;
+	top: 0px;
+	left: 64px;
+}
+.rightSpan{
+	position: absolute;
+	top: 0px;
+	left: 408px;
+}
+.console{
+	width: 100%;
+	height: 47px;
+	background-color: rgba(222,74,99,1);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	position: relative;
+	color: #eae8e9;
+	font-size: 14px;
+}
+.checkboxs{
+	position: absolute;
+	left: 29px;
+	top: 16px;
+		
+}
+.btn{
+	background: none;
+	border: none;
+	padding: 0;
+	color: #eae8e9;
+	position: absolute;
+	left: 63px;
+	top: 14px;
+}
+.console span{
+	display: inline-block;
+	position: absolute;
+	height: 24px;
+	bottom: 12px;
+}
+.console span:nth-of-type(1){	
+	left: 151px;	
+}
+.console span:nth-of-type(2){
+	left: 258px;
+}
+.console span:nth-of-type(3){
+	left: 366px;
+}
+.console span a{
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	vertical-align: top;
+	margin-left: 10px;
+}
+.console span i{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background-image: url(../img/1.png);
+	vertical-align: bottom;
+}
+.console span:nth-of-type(1) i{	
+	height: 21px;		
+}
+.console span:nth-of-type(2) i{	
+	background-position-y: -21px;		
+}
+.console span:nth-of-type(3) i{	
+	background-position-y: -46px;
+}

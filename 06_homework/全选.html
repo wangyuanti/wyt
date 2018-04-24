@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/quanxuan.css"/>
+	</head>
+	<body>
+		<div class="bg">
+			<div class="player">
+				<div class="nav">
+					<div class="options">
+						<input type="checkbox" class="checkbox" disabled>
+						<span class="leftSpan">泡沫</span>
+						<span class="rightSpan">邓紫棋</span>
+					</div>
+					<div class="options" >
+						<input type="checkbox" class="checkbox" disabled>
+						<span class="leftSpan">泡沫</span>
+						<span class="rightSpan">邓紫棋</span>
+					</div>
+					<div class="options">
+						<input type="checkbox" class="checkbox" disabled>
+						<span class="leftSpan">泡沫</span>
+						<span class="rightSpan">邓紫棋</span>
+					</div>
+					<div class="options">
+						<input type="checkbox" class="checkbox" disabled>
+						<span class="leftSpan">泡沫</span>
+						<span class="rightSpan">邓紫棋</span>
+					</div>
+					<div class="options">
+						<input type="checkbox" class="checkbox" disabled>
+						<span class="leftSpan">泡沫</span>
+						<span class="rightSpan">邓紫棋</span>
+					</div>
+					<div class="options">
+						<input type="checkbox" class="checkbox" disabled> 
+						<span class="leftSpan">泡沫</span>
+						<span class="rightSpan">邓紫棋</span>
+					</div>
+				</div>
+				<div class="console">
+					<input type="checkbox" class="checkboxs" disabled>
+					<a href="#" class="btn">全选</a>
+					<span><i></i><a href="#">收藏</a></span>
+					<span><i></i><a href="#">添加</a></span>
+					<span><i></i><a href="#">删除</a></span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var options = document.querySelectorAll('.options');
+		var len = options.length;
+		var Checkbox = document.querySelectorAll('.checkbox');
+		var num = 0,num2=0,num3=0;
+		var Checkboxs = document.querySelector('.checkboxs');
+		var btn = document.querySelector('.btn');
+		for(var i=0;i<len;i++){
+			options[i].x = i;
+			options[i].onclick = function (){
+				num = this.x;
+				this.classList.toggle('options2');
+				if(this.classList.length == 2){
+					Checkbox[num].checked = "checked";
+				}else{
+					Checkbox[num].checked = "";
+				}
+				judje();
+				num3 = 0;
+			}
+		}
+		btn.onclick = function (){
+			for(var i=0;i<len;i++){
+				if(options[i].classList.length == 2){
+					num2++;
+				}
+			}	
+				console.log(num2);
+				if(num2 == len){
+					for(var i=0;i<len;i++){
+						Checkbox[i].checked = "";
+						options[i].classList.remove('options2');
+					}
+					num2 = 0;
+				}else{
+					for(var i=0;i<len;i++){
+						Checkbox[i].checked = "checked";
+						options[i].classList.add('options2');
+					}
+					num2 = 0;
+				}	
+				judje();
+		}		
+		function judje(){
+			for(var i=0;i<len;i++){
+				if(options[i].classList.length == 2){
+					num3++;
+				}
+			}
+			if(num3 == len){
+				num3 = 0
+				Checkboxs.checked = "checked";
+			}else{
+				Checkboxs.checked = "";
+			}
+		}		
+	</script>
+</html>
