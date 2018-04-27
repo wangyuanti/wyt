@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="price.css" />
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="box">
+				<ul class="list">
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>12.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>10.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>8.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>8元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>14.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+				</ul>
+				<div class="info">
+					<span>商品公合计：<em>0</em>件</span>
+					<span>共花费了：<em>0</em>元</span>
+					<br />
+					<br />
+					<span>其中最贵的商品单价是：<em>0</em>元</span>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			const Add = document.querySelectorAll('.list li i:nth-of-type(2)');
+			const Sub = document.querySelectorAll('.list li i:nth-of-type(1)');
+			const Num = document.querySelectorAll('.list li em');
+			const totalPrices = document.querySelectorAll('.list li strong:nth-of-type(2)');
+			const unitPrice = document.querySelectorAll('.list li strong:nth-of-type(1)');
+			const AllTotalNum = document.querySelector('.info span:nth-of-type(1) em');
+			const AllTotalPrices = document.querySelector('.info span:nth-of-type(2) em');
+			const Max = document.querySelector('.info span:nth-of-type(3) em');
+			let AllTotalNumNum = 0;
+			let AllTotalPricesPrices = 0;
+			let max = [];
+			let maxNum = 0;
+			for(let i=0;i<Add.length;i++){
+				Num[i].number = 0;
+				Num[i].unitPrice = parseFloat(unitPrice[i].innerHTML);
+				Add[i].onclick = function (){
+					++Num[i].number;
+					AllTotalNumNum++;					
+					a(i);
+				}				
+				Sub[i].onclick = function (){
+					Num[i].number--;
+					if(Num[i].number<0) Num[i].number=0
+					AllTotalNumNum--;
+					if(AllTotalNumNum<0)AllTotalNumNum=0;				
+					a(i);
+				}				
+			}
+			function a(i){
+				Num[i].innerHTML = Num[i].number;
+				totalPrices[i].innerHTML = `${Num[i].number * Num[i].unitPrice}元`;
+//				------------------------------------------------------------------------
+				AllTotalNum.innerHTML = AllTotalNumNum;
+//				------------------------------------------------------------------------
+				AllTotalPricesPrices = 0;
+				for(let i=0;i<Add.length;i++){
+					AllTotalPricesPrices += parseFloat(totalPrices[i].innerHTML)
+				}
+				AllTotalPrices.innerHTML = AllTotalPricesPrices;
+//				------------------------------------------------------------------------
+				maxNum = 0;
+				for(let i=0;i<Add.length;i++){
+					if(Num[i].number>0){
+						if(Num[i].unitPrice>maxNum)maxNum=Num[i].unitPrice
+					}
+				}
+				Max.innerHTML = maxNum;
+			}
+		</script>
+	</body>
+
+</html>
