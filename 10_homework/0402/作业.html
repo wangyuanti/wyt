@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/zuoye.css"/>
+	</head>
+	<body>
+		<div class="bg">
+			<div class="box">
+				<div class="content">妙味课堂是一支独具特色的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一途中全新的快乐学习方法！目前主要针对的是javascript培训，同时还提供了CSS教程、javascript视频、js特效等，最新推出了外地学员们喜欢的javascript网络课程服务，同时还为处于javascript入门阶段的朋友录制了大量javascript视频，其中涉及了大量javascript基础知识，希望妙味课堂推出的javascript网络培训课程能带给大家更多惊喜。</div>
+				<div class="unfold unfold1">
+					<a href="#">
+						<i></i>
+						<span>展开</span>
+					</a>
+				</div>
+				<div class="unfold">
+					<a href="#">
+						<i></i>
+						<span>查找</span>
+					</a>
+				</div>
+				<div class="unfold">
+					<a href="#">
+						<i></i>
+						<span>替换</span>
+					</a>
+				</div>
+			</div>
+			<div class="pupup">
+				<input type="button" name="" id="" value="查找" class="btn find"/>
+				<input type="button" name="" id="" value="替换" class="btn replace"/>
+				<i></i>
+				<input type="text" name="" id="" value="" placeholder="输入要查找的内容" class="text text1 textFind"/>
+				<input type="text" name="" id="" value="" placeholder="输入要替换的内容" class="text text2 textReplace"/>
+				<input type="button" name="" id="" value="" class="start"/>
+				
+			</div>
+		</div>
+		<script type="text/javascript">
+			const unfold1 = document.querySelector('.box div:nth-of-type(2)');
+			const unfoldI = document.querySelector('.box div:nth-of-type(2) a i');
+			const unfoldSpan = document.querySelector('.box div:nth-of-type(2) a span');
+			const unfold2 = document.querySelector('.box div:nth-of-type(3)');
+			const unfold3 = document.querySelector('.box div:nth-of-type(4)');
+			const pupup = document.querySelector('.pupup');	
+			const find = document.querySelector('.find');
+			const replace = document.querySelector('.replace');	
+			const textFind = document.querySelector('.textFind');
+			const textReplace = document.querySelector('.textReplace');
+			const Start = document.querySelector('.start');
+			const content = document.querySelector('.content');
+			let Text = content.innerHTML;
+			let state = 0;
+			let NewText2=''
+			unfoldI.onclick = unfoldSpan.onclick =function (){
+				unfold1.classList.toggle('unfold11');
+				textFind.classList.add('text1');
+				textReplace.classList.add('text2');
+				if(unfold1.classList.contains('unfold11')){
+					unfoldSpan.innerHTML = '收起'
+				}else{
+					unfoldSpan.innerHTML = '展开'
+				}
+				unfold2.classList.toggle('unfold2');	
+				unfold3.classList.toggle('unfold3');
+				pupup.classList.toggle('pupup1');
+			}
+			unfold3.onclick=replace.onclick = function (){
+				if(!state){
+					content.innerHTML = Text;
+					textFind.value = '';
+					textReplace.value = '';
+				}
+				textFind.classList.remove('text1');
+				textReplace.classList.remove('text2');
+				state = 1;
+				
+			}
+			unfold2.onclick=find.onclick = function (){
+				textFind.value = '';
+				textReplace.value = '';
+				textFind.classList.add('text1');
+				textReplace.classList.add('text2');
+				state = 0;
+			}			
+			Start.onclick = function(){
+				let NewText=Text.split(textFind.value);
+				if(!state){
+//					for(let i=0;i<NewText.length;i++){
+//						if(i<NewText.length-1){
+//							NewText2+=`${NewText[i]}<span class="color">${textFind.value}</span>` 
+//						}else{
+//							NewText2+=`${NewText[i]}` 
+//						}					
+//					}
+					NewText2 = NewText.join(`<span class="color">${textFind.value}</span>`);
+					var Span = document.querySelector('.content span');
+					console.log(Span);
+				}else{
+					NewText2 = NewText.join(textReplace.value);	
+					Text = NewText2;
+				}	
+				content.innerHTML = NewText2;
+				NewText2 = '';
+			}			
+			textFind.onclick = function (){
+				if(!state){
+					content.innerHTML = Text;
+					textFind.value = ''
+				}	
+			}
+		</script>
+	</body>
+</html>
